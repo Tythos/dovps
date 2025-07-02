@@ -1,0 +1,7 @@
+.terraform/
+.terraform.lock.hcl
+.terraform.tfstate.lock.info
+*.tfvars
+id_rsa
+terraform.tfstate
+terraform.tfstate.backup
