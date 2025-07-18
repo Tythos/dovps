@@ -1,7 +1,6 @@
 resource "digitalocean_volume" "dovpsstorage" {
   region                  = var.DO_REGION
-  name                    = "dovpsstorage"
+  name                    = "volume-sfo3-01"
   size                    = 100
   initial_filesystem_type = "ext4"
-  description             = "Persistent storage for server configuration and data"
 }

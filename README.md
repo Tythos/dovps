@@ -53,4 +53,10 @@ ssh -i id_rsa root@$DROPLET_IP
 
 Cloud init can take a while to apply the appropriate configuration. Just because Terraform reports the VM has successfully spun up does *NOT* mean cloud-init has finished instantiating.
 
-The cloud-init configuration includes a basic NGINX-based webpage. You can verify that it is running by visiting the address of the VM in your browser.
+Earlier versions of the cloud-init configuration includes a basic NGINX-based webpage. This approach could be easily verified to be running by visiting the address of the VM in your browser.
+
+We've since migrated to slightly more sophisticated multi-service/hosting orchestration that is instead driven by Traefik managing a variety of Docker containers. So, the cloud-init configuration focuses on installation of these tools instead, as well as mounting of the persistent volume. This can take a while so it's worth monitoring the cloud-init logs once you can connect to the VM:
+
+```sh
+tail -f /var/log/cloud-init-output.log
+```
